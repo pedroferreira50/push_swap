@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pviegas- <pviegas-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/09 17:42:11 by pviegas-          #+#    #+#             */
+/*   Updated: 2024/08/09 17:52:22 by pviegas-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -48,5 +60,13 @@ void	init_stack(t_list **stack, char **argv);
 int		is_sorted(t_list *head);
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr(const char *str);
+void	process_stacks(char **new_argv, char *concatenate_args);
+int		prepare_args(int argc, char **argv,
+			char **concatenated_args, char ***new_argv);
+void	cleanup(t_list **stack_a, t_list **stack_b,
+			char *concatenated_args, char **new_argv);
+void	free_string_array(char **array);
+void	free_list(t_list *head);
+void	push_swap_algo(t_list **stack_a, t_list **stack_b);
 
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pviegas- <pviegas-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/09 17:41:10 by pviegas-          #+#    #+#             */
+/*   Updated: 2024/08/09 17:43:32 by pviegas-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	bring_smallest_to_top(t_list **stack)
@@ -106,40 +118,6 @@ void	push_swap_algo(t_list **stack_a, t_list **stack_b)
 	execute_all_functions_reverse(stack_a, stack_b);
 	bring_smallest_to_top(stack_a);
 }
-void free_list(t_list *head) {
-    t_list *temp;
-    while (head != NULL) {
-        temp = head;
-        head = head->next;
-        free(temp);
-    }
-}
-
-void free_string_array(char **array) {
-    int i = 0;
-    if (array == NULL)
-        return;
-    while (array[i] != NULL) {
-        free(array[i]);
-        i++;
-    }
-    free(array);
-}
-
-void cleanup(t_list **stack_a, t_list **stack_b, char *concatenated_args, char **new_argv) {
-    if (stack_a != NULL) {
-        free_list(*stack_a);  // Free the linked list for stack_a
-        free(stack_a);        // Free the stack_a pointer itself
-    }
-    if (stack_b != NULL) {
-        free_list(*stack_b);  // Free the linked list for stack_b
-        free(stack_b);        // Free the stack_b pointer itself
-    }
-    if (concatenated_args != NULL) {
-        free(concatenated_args); // Free the concatenated args string
-    }
-    free_string_array(new_argv);  // Free the array of strings
-}
 
 /* int	main(int argc, char **argv)
 {
@@ -183,55 +161,17 @@ void cleanup(t_list **stack_a, t_list **stack_b, char *concatenated_args, char *
 	return (0);
 } */
 
-int prepare_args(int argc, char **argv, char **concatenated_args, char ***new_argv)
+int	main(int argc, char **argv)
 {
-    *concatenated_args = concatenate_args(argc, argv);
-    if (*concatenated_args == NULL)
-        return -1;
+	char	*concatenated_args;
+	char	**new_argv;
 
-    *new_argv = ft_split(*concatenated_args, ' ');
-    if (*new_argv == NULL) {
-        free(*concatenated_args);
-        return -1;
-    }
-
-    return (0);
-}
-
-void process_stacks(char **new_argv, char *concatenate_args)
-{
-    t_list **stack_a;
-    t_list **stack_b;
-
-    stack_a = (t_list **)malloc(sizeof(t_list *));
-    stack_b = (t_list **)malloc(sizeof(t_list *));
-    if (!stack_a || !stack_b) {
-        cleanup(stack_a, stack_b, NULL, new_argv);
-        return;
-    }
-    *stack_a = NULL;
-    *stack_b = NULL;
-    init_stack(stack_a, new_argv);
-    if (check_errors(stack_a, concatenate_args)) {
-        cleanup(stack_a, stack_b, concatenate_args, new_argv);
-        return;
-    }
-    if (is_sorted(*stack_a))
-        push_swap_algo(stack_a, stack_b);
-    cleanup(stack_a, stack_b, concatenate_args, new_argv);
-}
-
-int main(int argc, char **argv)
-{
-    char *concatenated_args;
-    char **new_argv;
-
-    concatenated_args = NULL;
-    new_argv = NULL;
-    if (argc < 2)
-        return -1;
-    if (prepare_args(argc, argv, &concatenated_args, &new_argv) == -1)
-        return -1;
-    process_stacks(new_argv, concatenated_args);
-    return (0);
+	concatenated_args = NULL;
+	new_argv = NULL;
+	if (argc < 2)
+		return (-1);
+	if (prepare_args(argc, argv, &concatenated_args, &new_argv) == -1)
+		return (-1);
+	process_stacks(new_argv, concatenated_args);
+	return (0);
 }
