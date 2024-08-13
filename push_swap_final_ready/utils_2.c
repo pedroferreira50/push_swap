@@ -6,7 +6,7 @@
 /*   By: pviegas- <pviegas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:41:02 by pviegas-          #+#    #+#             */
-/*   Updated: 2024/08/09 17:41:03 by pviegas-         ###   ########.fr       */
+/*   Updated: 2024/08/13 06:31:31 by pviegas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*concatenate_args(int argc, char **argv)
 		total_len += ft_strlen(argv[i]) + 1;
 		i++;
 	}
-	result = (char *)malloc(total_len * sizeof(char));
+	result = (char *)malloc((total_len + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
 	result[0] = '\0';

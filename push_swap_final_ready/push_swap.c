@@ -6,7 +6,7 @@
 /*   By: pviegas- <pviegas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:41:10 by pviegas-          #+#    #+#             */
-/*   Updated: 2024/08/09 17:43:32 by pviegas-         ###   ########.fr       */
+/*   Updated: 2024/08/13 07:26:40 by pviegas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,7 @@ void	push_swap_algo(t_list **stack_a, t_list **stack_b)
 	return (0);
 } */
 
+
 int	main(int argc, char **argv)
 {
 	char	*concatenated_args;
@@ -170,6 +171,11 @@ int	main(int argc, char **argv)
 	new_argv = NULL;
 	if (argc < 2)
 		return (-1);
+	/*if (argc >= 2 && argv[1][0] == '\0')
+	{
+		write(2, "Error\n", 6);
+		exit (1);
+	}*/
 	if (prepare_args(argc, argv, &concatenated_args, &new_argv) == -1)
 		return (-1);
 	process_stacks(new_argv, concatenated_args);

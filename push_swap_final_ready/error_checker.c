@@ -6,7 +6,7 @@
 /*   By: pviegas- <pviegas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:41:51 by pviegas-          #+#    #+#             */
-/*   Updated: 2024/08/09 17:41:52 by pviegas-         ###   ########.fr       */
+/*   Updated: 2024/08/13 07:10:29 by pviegas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	has_non_digit_characters(const char *str)
 		{
 			if (str[i] == '-')
 			{
+				if (ft_isdigit(str[i - 1]))
+					return 1;
 				if (!ft_isdigit(str[i + 1]))
 					return (1);
 			}
@@ -82,17 +84,17 @@ int	check_errors(t_list **stack_a, char *concatenated_args)
 {
 	if (has_non_digit_characters(concatenated_args) == 1)
 	{
-		printf("Error\n");
+		write(2, "Error\n", 6);
 		return (1);
 	}
 	if (check_duplicates(stack_a) == 1)
 	{
-		printf("Error\n");
+		write(2, "Error\n", 6);
 		return (1);
 	}
 	if (check_values(stack_a) == 1)
 	{
-		printf("Error\n");
+		write(2, "Error\n", 6);
 		return (1);
 	}
 	return (0);
