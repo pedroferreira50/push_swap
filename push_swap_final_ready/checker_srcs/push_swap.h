@@ -6,7 +6,7 @@
 /*   By: pviegas- <pviegas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:42:11 by pviegas-          #+#    #+#             */
-/*   Updated: 2024/08/09 17:52:22 by pviegas-         ###   ########.fr       */
+/*   Updated: 2024/08/15 04:09:10 by pviegas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,9 @@ void	cleanup(t_list **stack_a, t_list **stack_b,
 void	free_string_array(char **array);
 void	free_list(t_list *head);
 void	push_swap_algo(t_list **stack_a, t_list **stack_b);
+void	rrr_rr_ss(t_list **stack_a, t_list **stack_b, char *str);
+void	rrb(t_list **head);
+void	rra(t_list **head);
+void	rb(t_list **head);
 
 #endif

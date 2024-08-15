@@ -6,7 +6,7 @@
 /*   By: pviegas- <pviegas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:41:51 by pviegas-          #+#    #+#             */
-/*   Updated: 2024/08/13 07:33:02 by pviegas-         ###   ########.fr       */
+/*   Updated: 2024/08/14 02:57:16 by pviegas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	has_non_digit_characters(const char *str)
 		{
 			if (str[i] == '-')
 			{
-				if (ft_isdigit(str[i - 1]))
+				if (i > 0 && ft_isdigit(str[i - 1]))
 					return (1);
 				if (!ft_isdigit(str[i + 1]))
 					return (1);

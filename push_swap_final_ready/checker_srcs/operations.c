@@ -6,13 +6,13 @@
 /*   By: pviegas- <pviegas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:41:19 by pviegas-          #+#    #+#             */
-/*   Updated: 2024/08/09 17:41:20 by pviegas-         ###   ########.fr       */
+/*   Updated: 2024/08/14 06:20:31 by pviegas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rb(t_list **head)
+void	rb(t_list **head)
 {
 	t_list	*last;
 
@@ -28,7 +28,7 @@ static void	rb(t_list **head)
 	last->next->next = NULL;
 }
 
-static void	rra(t_list **head)
+void	rra(t_list **head)
 {
 	t_list	*last;
 
@@ -45,7 +45,7 @@ static void	rra(t_list **head)
 	(*head)->previous = NULL;
 }
 
-static void	rrb(t_list **head)
+void	rrb(t_list **head)
 {
 	t_list	*last;
 
@@ -62,7 +62,7 @@ static void	rrb(t_list **head)
 	(*head)->previous = NULL;
 }
 
-static void	rrr_rr_ss(t_list **stack_a, t_list **stack_b, char *str)
+void	rrr_rr_ss(t_list **stack_a, t_list **stack_b, char *str)
 {
 	int	length;
 
